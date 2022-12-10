@@ -31,9 +31,9 @@ class MainTabBarController: UITabBarController {
         
         let searchNavVC = UINavigationController(rootViewController: searchVC)
         let libraryNavVC = UINavigationController(rootViewController: libraryVC)
-        
-        searchNavVC.navigationBar.prefersLargeTitles = true
-        libraryNavVC.navigationBar.prefersLargeTitles = true
+
+//        searchNavVC.navigationBar.prefersLargeTitles = true
+//        libraryNavVC.navigationBar.prefersLargeTitles = true
         
         setViewControllers([searchNavVC, libraryNavVC], animated: true)
         
