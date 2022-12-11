@@ -15,11 +15,11 @@ struct TrackModel {
 
 class SearchViewController: UITableViewController {
     
+    private var timer: Timer?
+    
     let searchController = UISearchController(searchResultsController: nil)
     
-    let tracks = [TrackModel(trackName: "Bad Guy", artistName: "Test 1"),
-                 TrackModel(trackName: "Good Guy", artistName: "Test 2")
-    ]
+    var tracks = [Track]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,17 +54,32 @@ extension SearchViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         
-        let url = "https://itunes.apple.com/search?term=\(searchText)"
-        
-        AF.request(url).responseData { dataResponse in
-            if let error = dataResponse.error {
-                print("Error recived requestiong data: \(error.localizedDescription)")
-                return
-            }
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { _ in
+            let url = "https://itunes.apple.com/search"
+            let parametrs = ["term": "\(searchText)",
+                             "limit": "10"]
             
-            guard let data = dataResponse.data else { return }
-            let someString = String(data: data, encoding: .utf8)
-            print(someString ?? "")
-        }
+            AF.request(url, method: .get, parameters: parametrs, encoding: URLEncoding.default, headers: nil).responseData { dataResponse in
+                if let error = dataResponse.error {
+                    print("Error recived requestiong data: \(error.localizedDescription)")
+                    return
+                }
+                
+                guard let data = dataResponse.data else { return }
+                
+                let decoder = JSONDecoder()
+                do {
+                    let objects = try decoder.decode(SearchResponse.self, from: data)
+                    print("objects:", objects)
+                    self.tracks = objects.results
+                    self.tableView.reloadData()
+                } catch let jsonError {
+                    print("Failed to decode JSON", jsonError)
+                }
+//                let someString = String(data: data, encoding: .utf8)
+//                print(someString ?? "")
+            }
+        })
     }
 }

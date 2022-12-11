@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0ACCFEE92945BA8B000C3103 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACCFEE82945BA8B000C3103 /* SearchResponse.swift */; };
 		0AE415AD2944F8AD005534E3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE415AC2944F8AD005534E3 /* AppDelegate.swift */; };
 		0AE415AF2944F8AD005534E3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE415AE2944F8AD005534E3 /* SceneDelegate.swift */; };
 		0AE415B42944F8AD005534E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AE415B22944F8AD005534E3 /* Main.storyboard */; };
@@ -19,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0ACCFEE82945BA8B000C3103 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
 		0AE415A92944F8AD005534E3 /* MyMusic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMusic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AE415AC2944F8AD005534E3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0AE415AE2944F8AD005534E3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +48,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0ACCFEE72945BA0D000C3103 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				0AE415AC2944F8AD005534E3 /* AppDelegate.swift */,
+				0AE415AE2944F8AD005534E3 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
 		0AE415A02944F8AD005534E3 = {
 			isa = PBXGroup;
 			children = (
@@ -67,14 +78,14 @@
 		0AE415AB2944F8AD005534E3 /* MyMusic */ = {
 			isa = PBXGroup;
 			children = (
-				0AE415AC2944F8AD005534E3 /* AppDelegate.swift */,
-				0AE415AE2944F8AD005534E3 /* SceneDelegate.swift */,
+				0ACCFEE72945BA0D000C3103 /* Application */,
 				0AE415B22944F8AD005534E3 /* Main.storyboard */,
 				0AE415B52944F8AF005534E3 /* Assets.xcassets */,
 				0AE415B72944F8AF005534E3 /* LaunchScreen.storyboard */,
 				0AE415BA2944F8AF005534E3 /* Info.plist */,
 				0AE415C02944F8FC005534E3 /* MainTabBarController.swift */,
 				0AE415C22944F9FA005534E3 /* SearchViewController.swift */,
+				0ACCFEE82945BA8B000C3103 /* SearchResponse.swift */,
 				0AE415C42944FA7E005534E3 /* LibraryViewController.swift */,
 			);
 			path = MyMusic;
@@ -86,7 +97,6 @@
 				FFD965BFD3E58E98D368006C /* Pods-MyMusic.debug.xcconfig */,
 				F358FA86CFB8278C5E4A1DB9 /* Pods-MyMusic.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -215,6 +225,7 @@
 			files = (
 				0AE415C32944F9FA005534E3 /* SearchViewController.swift in Sources */,
 				0AE415AD2944F8AD005534E3 /* AppDelegate.swift in Sources */,
+				0ACCFEE92945BA8B000C3103 /* SearchResponse.swift in Sources */,
 				0AE415C12944F8FC005534E3 /* MainTabBarController.swift in Sources */,
 				0AE415C52944FA7E005534E3 /* LibraryViewController.swift in Sources */,
 				0AE415AF2944F8AD005534E3 /* SceneDelegate.swift in Sources */,
