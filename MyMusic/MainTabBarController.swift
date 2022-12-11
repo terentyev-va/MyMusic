@@ -22,12 +22,11 @@ class MainTabBarController: UITabBarController {
     
     private func setupViews() {
         
-        let searchVC = SearchViewController()
+        let searchVC = SearchMusicViewController()
         let libraryVC = LibraryViewController()
         
-        searchVC.navigationItem.title = "Search"
-        libraryVC.navigationItem.title = "Library"
-        
+//        searchVC.navigationItem.title = "Search"
+//        libraryVC.navigationItem.title = "Library"
         
         let searchNavVC = UINavigationController(rootViewController: searchVC)
         let libraryNavVC = UINavigationController(rootViewController: libraryVC)
