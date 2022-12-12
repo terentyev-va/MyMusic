@@ -12,30 +12,30 @@
 
 import UIKit
 
-protocol SearchBusinessLogic
-{
-  func doSomething(request: Search.Something.Request)
+protocol SearchBusinessLogic {
+    func makeRequest(request: Search.Model.Request.RequestType)
 }
 
-protocol SearchDataStore
-{
-  //var name: String { get set }
-}
-
-class SearchInteractor: SearchBusinessLogic, SearchDataStore
-{
-  var presenter: SearchPresentationLogic?
-  var worker: SearchWorker?
-  //var name: String = ""
-  
-  // MARK: Do something
-  
-  func doSomething(request: Search.Something.Request)
-  {
-    worker = SearchWorker()
-    worker?.doSomeWork()
+class SearchInteractor: SearchBusinessLogic {
     
-    let response = Search.Something.Response()
-    presenter?.presentSomething(response: response)
-  }
+    var networkService = NetworkService()
+    var presenter: SearchPresentationLogic?
+    var service: SearchService?
+    
+    func makeRequest(request: Search.Model.Request.RequestType) {
+        if service == nil {
+            service = SearchService()
+        }
+        
+        switch request {
+        case .some:
+            print("interactor .some")
+            presenter?.presentData(response: Search.Model.Response.ResponseType.some)
+        case .getTracks(let searchTerm):
+            print("interactor .getTracks")
+            networkService.fetchTracks(searchText: searchTerm) { [weak self] searchResponse in
+                self?.presenter?.presentData(response: Search.Model.Response.ResponseType.presentTracks(searchResponse: searchResponse))
+            }
+        }
+    }
 }

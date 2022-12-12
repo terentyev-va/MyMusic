@@ -22,7 +22,9 @@ class MainTabBarController: UITabBarController {
     
     private func setupViews() {
         
-        let searchVC = SearchMusicViewController()
+        let searchVC: SearchViewController = SearchViewController.loadFromStoryBoard()
+        
+//        let searchVC = SearchMusicViewController()
         let libraryVC = LibraryViewController()
         
 //        searchVC.navigationItem.title = "Search"

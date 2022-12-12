@@ -12,20 +12,36 @@
 
 import UIKit
 
-enum Search
-{
-  // MARK: Use cases
-  
-  enum Something
-  {
-    struct Request
-    {
+enum Search {
+    
+    enum Model {
+        struct Request {
+            enum RequestType {
+                case some
+                case getTracks(serchTerm: String)
+            }
+        }
+        struct Response {
+            enum ResponseType {
+                case some
+                case presentTracks(searchResponse: SearchResponse?)
+            }
+        }
+        struct ViewModel {
+            enum ViewModelData {
+                case some
+                case displayTracks(searchViewModel: SearchViewModel)
+            }
+        }
     }
-    struct Response
-    {
+}
+
+struct SearchViewModel {
+    struct Cell {
+        var iconUrlString: String?
+        var trackName: String
+        var collectionName: String
+        var artistName: String
     }
-    struct ViewModel
-    {
-    }
-  }
+    let cells: [Cell]
 }
