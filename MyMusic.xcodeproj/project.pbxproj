@@ -15,6 +15,9 @@
 		0A6795352945EC0A006EC8B2 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67952F2945EC0A006EC8B2 /* SearchInteractor.swift */; };
 		0A67953D29460496006EC8B2 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A67953C29460496006EC8B2 /* SearchViewController.storyboard */; };
 		0A67953F2946080D006EC8B2 /* UIViewController + StoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67953E2946080D006EC8B2 /* UIViewController + StoryBoard.swift */; };
+		0A927276294CEE65000C1015 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A927275294CEE65000C1015 /* FooterView.swift */; };
+		0A927279294CF7BB000C1015 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A927278294CF7BB000C1015 /* TrackDetailView.xib */; };
+		0A92727B294CF7D5000C1015 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92727A294CF7D5000C1015 /* TrackDetailView.swift */; };
 		0A9E7724294CDE9F00CFC0B5 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E7723294CDE9F00CFC0B5 /* TrackCell.xib */; };
 		0A9E7726294CDEAF00CFC0B5 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E7725294CDEAF00CFC0B5 /* TrackCell.swift */; };
 		0ACCFEE92945BA8B000C3103 /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ACCFEE82945BA8B000C3103 /* SearchResponse.swift */; };
@@ -39,6 +42,9 @@
 		0A67952F2945EC0A006EC8B2 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		0A67953C29460496006EC8B2 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		0A67953E2946080D006EC8B2 /* UIViewController + StoryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + StoryBoard.swift"; sourceTree = "<group>"; };
+		0A927275294CEE65000C1015 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
+		0A927278294CF7BB000C1015 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
+		0A92727A294CF7D5000C1015 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		0A9E7723294CDE9F00CFC0B5 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		0A9E7725294CDEAF00CFC0B5 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
 		0ACCFEE82945BA8B000C3103 /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
@@ -73,6 +79,8 @@
 		0A67951C2945EA8F006EC8B2 /* Search */ = {
 			isa = PBXGroup;
 			children = (
+				0A927277294CF78B000C1015 /* TrackDetailView */,
+				0A927274294CEE4A000C1015 /* FooterView */,
 				0A9E7722294CDE8F00CFC0B5 /* Cell */,
 				0A67953C29460496006EC8B2 /* SearchViewController.storyboard */,
 				0A67952E2945EC0A006EC8B2 /* SearchViewController.swift */,
@@ -110,6 +118,23 @@
 				0AE415BA2944F8AF005534E3 /* Info.plist */,
 			);
 			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		0A927274294CEE4A000C1015 /* FooterView */ = {
+			isa = PBXGroup;
+			children = (
+				0A927275294CEE65000C1015 /* FooterView.swift */,
+			);
+			path = FooterView;
+			sourceTree = "<group>";
+		};
+		0A927277294CF78B000C1015 /* TrackDetailView */ = {
+			isa = PBXGroup;
+			children = (
+				0A927278294CF7BB000C1015 /* TrackDetailView.xib */,
+				0A92727A294CF7D5000C1015 /* TrackDetailView.swift */,
+			);
+			path = TrackDetailView;
 			sourceTree = "<group>";
 		};
 		0A9E7722294CDE8F00CFC0B5 /* Cell */ = {
@@ -253,6 +278,7 @@
 				0A9E7724294CDE9F00CFC0B5 /* TrackCell.xib in Resources */,
 				0AE415B62944F8AF005534E3 /* Assets.xcassets in Resources */,
 				0A67953D29460496006EC8B2 /* SearchViewController.storyboard in Resources */,
+				0A927279294CF7BB000C1015 /* TrackDetailView.xib in Resources */,
 				0AE415B42944F8AD005534E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,6 +337,7 @@
 				0ACCFEE92945BA8B000C3103 /* SearchResponse.swift in Sources */,
 				0A6795352945EC0A006EC8B2 /* SearchInteractor.swift in Sources */,
 				0AE415C12944F8FC005534E3 /* MainTabBarController.swift in Sources */,
+				0A927276294CEE65000C1015 /* FooterView.swift in Sources */,
 				0A9E7726294CDEAF00CFC0B5 /* TrackCell.swift in Sources */,
 				0AE415C52944FA7E005534E3 /* LibraryViewController.swift in Sources */,
 				0A6795312945EC0A006EC8B2 /* SearchWorker.swift in Sources */,
@@ -320,6 +347,7 @@
 				0AE415AF2944F8AD005534E3 /* SceneDelegate.swift in Sources */,
 				0A6795302945EC0A006EC8B2 /* SearchPresenter.swift in Sources */,
 				0ACCFEEB2945E0B0000C3103 /* NetworkService.swift in Sources */,
+				0A92727B294CF7D5000C1015 /* TrackDetailView.swift in Sources */,
 				0A67953F2946080D006EC8B2 /* UIViewController + StoryBoard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
