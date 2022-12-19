@@ -15,8 +15,8 @@
 		0A6795352945EC0A006EC8B2 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67952F2945EC0A006EC8B2 /* SearchInteractor.swift */; };
 		0A67953D29460496006EC8B2 /* SearchViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A67953C29460496006EC8B2 /* SearchViewController.storyboard */; };
 		0A67953F2946080D006EC8B2 /* UIViewController + StoryBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A67953E2946080D006EC8B2 /* UIViewController + StoryBoard.swift */; };
+		0A7183E5295010F400A08D40 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A7183E4295010F400A08D40 /* TrackDetailView.xib */; };
 		0A927276294CEE65000C1015 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A927275294CEE65000C1015 /* FooterView.swift */; };
-		0A927279294CF7BB000C1015 /* TrackDetailView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A927278294CF7BB000C1015 /* TrackDetailView.xib */; };
 		0A92727B294CF7D5000C1015 /* TrackDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A92727A294CF7D5000C1015 /* TrackDetailView.swift */; };
 		0A9E7724294CDE9F00CFC0B5 /* TrackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0A9E7723294CDE9F00CFC0B5 /* TrackCell.xib */; };
 		0A9E7726294CDEAF00CFC0B5 /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A9E7725294CDEAF00CFC0B5 /* TrackCell.swift */; };
@@ -42,8 +42,8 @@
 		0A67952F2945EC0A006EC8B2 /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		0A67953C29460496006EC8B2 /* SearchViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = SearchViewController.storyboard; sourceTree = "<group>"; };
 		0A67953E2946080D006EC8B2 /* UIViewController + StoryBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + StoryBoard.swift"; sourceTree = "<group>"; };
+		0A7183E4295010F400A08D40 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
 		0A927275294CEE65000C1015 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
-		0A927278294CF7BB000C1015 /* TrackDetailView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackDetailView.xib; sourceTree = "<group>"; };
 		0A92727A294CF7D5000C1015 /* TrackDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackDetailView.swift; sourceTree = "<group>"; };
 		0A9E7723294CDE9F00CFC0B5 /* TrackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TrackCell.xib; sourceTree = "<group>"; };
 		0A9E7725294CDEAF00CFC0B5 /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
@@ -131,8 +131,8 @@
 		0A927277294CF78B000C1015 /* TrackDetailView */ = {
 			isa = PBXGroup;
 			children = (
-				0A927278294CF7BB000C1015 /* TrackDetailView.xib */,
 				0A92727A294CF7D5000C1015 /* TrackDetailView.swift */,
+				0A7183E4295010F400A08D40 /* TrackDetailView.xib */,
 			);
 			path = TrackDetailView;
 			sourceTree = "<group>";
@@ -275,10 +275,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				0AE415B92944F8AF005534E3 /* LaunchScreen.storyboard in Resources */,
+				0A7183E5295010F400A08D40 /* TrackDetailView.xib in Resources */,
 				0A9E7724294CDE9F00CFC0B5 /* TrackCell.xib in Resources */,
 				0AE415B62944F8AF005534E3 /* Assets.xcassets in Resources */,
 				0A67953D29460496006EC8B2 /* SearchViewController.storyboard in Resources */,
-				0A927279294CF7BB000C1015 /* TrackDetailView.xib in Resources */,
 				0AE415B42944F8AD005534E3 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
