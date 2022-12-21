@@ -8,71 +8,58 @@
 import UIKit
 
 protocol MainTabBarControllerDelegate: AnyObject {
-    func minimizedTrackDetailController()
+    func minimizeTrackDetailController()
+    func maximizeTrackDetailController(viewModel: SearchViewModel.Cell?)
 }
 
 class MainTabBarController: UITabBarController {
     
-    var minimizedTopAnchorConstraints: NSLayoutConstraint!
-    var maximizedTopAnchorConstraints: NSLayoutConstraint!
+    let searchVC: SearchViewController = SearchViewController.loadFromStoryBoard()
+    let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
+    
+    var minimizeTopAnchorConstraints: NSLayoutConstraint!
+    var maximizeTopAnchorConstraints: NSLayoutConstraint!
     private var bottomAnchorConstraint: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupTabBar()
-        setupViews()
-        setupTrackDetailView()
-    }
-    
-    private func setupTabBar() {
-        tabBar.tintColor = #colorLiteral(red: 1, green: 0.1719063818, blue: 0.4505617023, alpha: 1)
+        view.backgroundColor = .white
+        tabBar.tintColor = #colorLiteral(red: 1, green: 0, blue: 0.3776089847, alpha: 1)
         tabBar.backgroundColor = .systemGray6
         tabBar.layer.borderWidth = 1
-        tabBar.layer.borderColor = UIColor.systemGray5.cgColor
+        tabBar.layer.borderColor = UIColor.systemGray3.cgColor
+        setupTrackDetailView()
+        
+        searchVC.tabBarDelegate = self
+        
+        viewControllers = [
+            generateViewController(rootViewController: searchVC, image: #imageLiteral(resourceName: "search"), title: "Search"),
+            generateViewController(rootViewController: LibraryViewController(), image: #imageLiteral(resourceName: "library"), title: "Library")
+        ]
     }
     
-    private func setupViews() {
-        
-        let searchVC: SearchViewController = SearchViewController.loadFromStoryBoard()
-        
-//        let searchVC = SearchMusicViewController()
-        let libraryVC = LibraryViewController()
-        
-        searchVC.navigationItem.title = "Search"
-        libraryVC.navigationItem.title = "Library"
-        
-        let searchNavVC = UINavigationController(rootViewController: searchVC)
-        let libraryNavVC = UINavigationController(rootViewController: libraryVC)
-
-        searchNavVC.navigationBar.prefersLargeTitles = true
-        libraryNavVC.navigationBar.prefersLargeTitles = true
-        
-        setViewControllers([searchNavVC, libraryNavVC], animated: true)
-        
-        guard let items = tabBar.items else { return }
-        
-        items[0].title = "Search"
-        items[1].title = "Library"
-        
-        items[0].image = UIImage(named: "search")
-        items[1].image = UIImage(named: "library")
+    private func generateViewController(rootViewController: UIViewController, image: UIImage, title: String) -> UIViewController {
+        let navigationVC = UINavigationController(rootViewController: rootViewController)
+        navigationVC.tabBarItem.image = image
+        navigationVC.tabBarItem.title = title
+        rootViewController.navigationItem.title = title
+        navigationVC.navigationBar.prefersLargeTitles = true
+        return navigationVC
     }
     
     private func setupTrackDetailView() {
-        let trackDetailView: TrackDetailView = TrackDetailView.loadFromNib()
-        trackDetailView.backgroundColor = .green
         trackDetailView.tabBarDelegate = self
-//        trackDetailView.delegate =
+        trackDetailView.delegate = searchVC
         view.insertSubview(trackDetailView, belowSubview: tabBar)
 
         trackDetailView.translatesAutoresizingMaskIntoConstraints = false
-        maximizedTopAnchorConstraints = trackDetailView.topAnchor.constraint(equalTo: view.topAnchor)
-        minimizedTopAnchorConstraints = trackDetailView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64)
+        maximizeTopAnchorConstraints = trackDetailView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
+        minimizeTopAnchorConstraints = trackDetailView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64)
         bottomAnchorConstraint = trackDetailView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: view.frame.height)
         
         bottomAnchorConstraint.isActive = true
-        maximizedTopAnchorConstraints.isActive = true
+        maximizeTopAnchorConstraints.isActive = true
         
         trackDetailView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         trackDetailView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
@@ -82,11 +69,12 @@ class MainTabBarController: UITabBarController {
 //MARK: - MainTabBarControllerDelegate
 
 extension MainTabBarController: MainTabBarControllerDelegate {
-        
-    func minimizedTrackDetailController() {
-        
-        maximizedTopAnchorConstraints.isActive = false
-        minimizedTopAnchorConstraints.isActive = true
+    
+    func maximizeTrackDetailController(viewModel: SearchViewModel.Cell?) {
+        maximizeTopAnchorConstraints.isActive = true
+        minimizeTopAnchorConstraints.isActive = false
+        maximizeTopAnchorConstraints.constant = 0
+        bottomAnchorConstraint.constant = 0
         
         UIView.animate(withDuration: 0.5,
                        delay: 0,
@@ -95,6 +83,31 @@ extension MainTabBarController: MainTabBarControllerDelegate {
                        options: .curveEaseInOut,
                        animations: {
             self.view.layoutIfNeeded()
+            self.tabBar.alpha = 0
+        })
+        
+        guard let viewModel = viewModel else { return }
+        self.trackDetailView.set(viewModel: viewModel)
+        self.trackDetailView.miniTrackView.alpha = 0
+        self.trackDetailView.maximizedStackView.alpha = 1
+    }
+    
+    func minimizeTrackDetailController() {
+        
+        maximizeTopAnchorConstraints.isActive = false
+        bottomAnchorConstraint.constant = view.frame.height
+        minimizeTopAnchorConstraints.isActive = true
+        
+        UIView.animate(withDuration: 0.5,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 1,
+                       options: .curveEaseInOut,
+                       animations: {
+            self.view.layoutIfNeeded()
+            self.tabBar.alpha = 1
+            self.trackDetailView.miniTrackView.alpha = 1
+            self.trackDetailView.maximizedStackView.alpha = 0
         })
     }
 }
