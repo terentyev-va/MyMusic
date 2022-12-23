@@ -195,10 +195,10 @@
 				0A67951C2945EA8F006EC8B2 /* Search */,
 				0A67954029460819006EC8B2 /* Helpers */,
 				0AE415B22944F8AD005534E3 /* Main.storyboard */,
-				0A67954129464F7C006EC8B2 /* SupportingFiles */,
 				0AE415C02944F8FC005534E3 /* MainTabBarController.swift */,
 				0AE415C22944F9FA005534E3 /* SearchMusicViewController.swift */,
 				0AE415C42944FA7E005534E3 /* LibraryViewController.swift */,
+				0A67954129464F7C006EC8B2 /* SupportingFiles */,
 			);
 			path = MyMusic;
 			sourceTree = "<group>";

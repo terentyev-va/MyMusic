@@ -71,8 +71,8 @@ class MainTabBarController: UITabBarController {
 extension MainTabBarController: MainTabBarControllerDelegate {
     
     func maximizeTrackDetailController(viewModel: SearchViewModel.Cell?) {
-        maximizeTopAnchorConstraints.isActive = true
         minimizeTopAnchorConstraints.isActive = false
+        maximizeTopAnchorConstraints.isActive = true
         maximizeTopAnchorConstraints.constant = 0
         bottomAnchorConstraint.constant = 0
         
@@ -84,12 +84,12 @@ extension MainTabBarController: MainTabBarControllerDelegate {
                        animations: {
             self.view.layoutIfNeeded()
             self.tabBar.alpha = 0
+            self.trackDetailView.miniTrackView.alpha = 0
+            self.trackDetailView.maximizedStackView.alpha = 1
         })
         
         guard let viewModel = viewModel else { return }
         self.trackDetailView.set(viewModel: viewModel)
-        self.trackDetailView.miniTrackView.alpha = 0
-        self.trackDetailView.maximizedStackView.alpha = 1
     }
     
     func minimizeTrackDetailController() {
