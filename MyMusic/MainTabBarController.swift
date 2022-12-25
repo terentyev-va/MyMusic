@@ -26,7 +26,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         
         view.backgroundColor = .white
-        tabBar.tintColor = #colorLiteral(red: 0.9957948327, green: 0.0192313157, blue: 0.3785650134, alpha: 1)
+        tabBar.tintColor = UIColor(named: "pink")
         tabBar.backgroundColor = .systemGray6
         tabBar.layer.borderWidth = 1
         tabBar.layer.borderColor = UIColor.systemGray3.cgColor
